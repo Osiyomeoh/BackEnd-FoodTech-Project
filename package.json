@@ -35,6 +35,9 @@
     "mongodb-memory-server": "^9.1.6",
     "supertest": "^6.3.4"
   },
+  "bin" : {
+    "execute" : "chmod +x /src/app.js"
+} ,
   "jest": {
     "testEnvironment": "node",
     "setupFilesAfterEnv": [
