@@ -1,0 +1,72 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Serpent;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Users\USER\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git LFS;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\Users\USER\AppData\Local\Programs\Python\Python37;C:\Users\USER\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\USER\.cargo\bin;C:\Users\USER\AppData\Local\Microsoft\WindowsApps;C:\Users\USER\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\USER\AppData\Roaming\npm;C:\Users\USER\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\xampp\php;C:\Users\USER\composer;C:\Users\USER\AppData\Roaming\Composer\vendor\bin;C:\Users\USER\.dotnet\tools;C:\Users\USER\AppData\Roaming\Flow;C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin;
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.20.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, lstat 'C:\Users\USER\Documents\Backend_Food\BackEnd-FoodTech-Project\node_modules\bcrypt\.editorconfig'
+
+npm manifest: 
+  {
+    "name": "devcareer-backend-food-tech-project",
+    "version": "1.0.0",
+    "main": "app.js",
+    "scripts": {
+      "start": "npm run build && node dist/app.js",
+      "build": "babel src -d dist"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "bcrypt": "^5.1.1",
+      "bcryptjs": "^2.4.3",
+      "body-parser": "^1.20.2",
+      "config": "3.3.1",
+      "dotenv": "^16.4.1",
+      "express": "^4.18.2",
+      "express-session": "^1.17.3",
+      "jsonwebtoken": "^9.0.2",
+      "mongodb": "^6.3.0",
+      "mongoose": "^8.1.1",
+      "passport": "^0.7.0",
+      "passport-google-oauth20": "^2.0.0",
+      "passport-jwt": "^4.0.1",
+      "passport-local": "^1.0.0"
+    },
+    "description": "",
+    "devDependencies": {
+      "@babel/cli": "^7.23.9",
+      "@babel/core": "^7.23.9",
+      "@babel/preset-env": "^7.23.9",
+      "jest": "^29.7.0",
+      "mockingoose": "^2.16.2",
+      "mongodb-memory-server": "^9.1.6",
+      "supertest": "^6.3.4"
+    },
+    "bin" : {
+      "execute" : "chmod +x /src/app.js"
+  } ,
+    "jest": {
+      "testEnvironment": "node",
+      "setupFilesAfterEnv": [
+        "C:/Users/USER/Documents/Backend_Food/BackEnd-FoodTech-Project/jest.setup.js"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
