@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node dist/app.js",
-    "build": "npx babel src -d dist"
+    "start": "nodemon app.js"
+ 
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
-const User = require('../src/models/User');
-const Merchant = require('../src/models/Merchant');
+const User = require('../models/User');
+const Merchant = require('../models/Merchant');
 
 module.exports = async (req, res, next) => {
     let token;
