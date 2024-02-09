@@ -79,7 +79,7 @@ exports.login = async (req, res) => {
         }
 
         console.log(`${userType} logged in with email: ${email}`);
-        res.json({ token: generateToken(user._id) });
+        res.json({ token: generateToken(user._id), userType: userType });
     } catch (err) {
         console.error(`Error logging in ${userType} with email ${email}:`, err);
         res.status(500).send('Server error');
