@@ -85,6 +85,65 @@ Replace `localhost:5000` with your production server URL when deployed.
 
 ---
 
+### Merchant Profile
+
+#### Get Merchant Profile
+- **Endpoint:** `/merchant/profile`
+- **Method:** GET
+- **Authorization:** Bearer Token (Merchant's Auth Token)
+- **Response:**
+  ```json
+  {
+    "id": "MERCHANT_ID",
+    "name": "Merchant Name",
+    "email": "merchant@example.com"
+  }
+  ```
+
+#### Update Merchant Profile
+- **Endpoint:** `/merchant/profile`
+- **Method:** PUT
+- **Authorization:** Bearer Token (Merchant's Auth Token)
+- **Body:**
+  ```json
+  {
+    "name": "New Merchant Name",
+    "email": "newmerchant@example.com"
+  }
+  ```
+- **Response:**
+  ```json
+  {
+    "id": "MERCHANT_ID",
+    "name": "New Merchant Name",
+    "email": "newmerchant@example.com"
+  }
+  ```
+
+---
+
+### Merchant Products
+
+#### Get Merchant's Products
+- **Endpoint:** `/merchant/products`
+- **Method:** GET
+- **Authorization:** Bearer Token (Merchant's Auth Token)
+- **Response:**
+  ```json
+  [
+    {
+      "id": "PRODUCT_ID",
+      "name": "Product Name",
+      "price": 100,
+      ...
+    },
+    ...
+  ]
+  ```
+
+---
+
+
 ### Products
 
 #### Add Product
