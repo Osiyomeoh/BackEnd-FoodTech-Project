@@ -20,7 +20,12 @@ exports.registerUser = async (req, res) => {
             console.log(`User with email ${email} already exists`);
             return res.status(400).json({ message: 'User already exists' });
         }
-
+       
+        let merchant = await Merchant.findOne({ email });
+        if (merchant) {
+            console.log(`Email ${email} is already registered as a merchant`);
+            return res.status(400).json({ message: 'Email is already in use' });
+        }
         user = new User({ name, email, password });
         
       
@@ -45,7 +50,11 @@ exports.registerMerchant = async (req, res) => {
             console.log(`Merchant with email ${email} already exists`);
             return res.status(400).json({ message: 'Merchant already exists' });
         }
-
+        let user = await User.findOne({ email });
+        if (user) {
+            console.log(`Email ${email} is already registered as a user`);
+            return res.status(400).json({ message: 'Email is already in use' });
+        }
         merchant = new Merchant({ name, email, password });
         await merchant.save();
 
