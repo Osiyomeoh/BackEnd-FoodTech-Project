@@ -22,10 +22,10 @@ exports.registerUser = async (req, res) => {
         }
 
         user = new User({ name, email, password });
-        // user.password = await bcrypt.hash(password, 10);
-        console.log(user)
+        
+      
         await user.save();
-        console.log(user)
+      
 
         console.log(`User registered with email: ${email}`);
         res.status(201).json({ token: generateToken(user._id) });
@@ -47,7 +47,6 @@ exports.registerMerchant = async (req, res) => {
         }
 
         merchant = new Merchant({ name, email, password });
-        merchant.password = await bcrypt.hash(password, 10);
         await merchant.save();
 
         console.log(`Merchant registered with email: ${email}`);
