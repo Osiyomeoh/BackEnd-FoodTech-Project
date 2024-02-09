@@ -60,35 +60,39 @@ exports.registerMerchant = async (req, res) => {
 
 exports.login = async (req, res) => {
     const { email, password } = req.body;
-    console.log(`Attempting login for ${userType} with email: ${email}`);
 
     try {
         let user = await User.findOne({ email });
+        let userType;
 
-        
-        if (!user) {
+        if (user) {
+            userType = 'user';
+        } else {
             user = await Merchant.findOne({ email });
+            if (user) {
+                userType = 'merchant';
+            }
         }
 
-        
         if (!user) {
+            console.log(`No user or merchant found with email ${email}`);
             return res.status(400).json({ message: 'Invalid Credentials' });
         }
 
-       
         console.log("Hashed password from DB:", user.password);
         console.log("Plain password from login attempt:", password);
-        
+
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-          
+            console.log(`Password mismatch for ${userType} with email ${email}`);
             return res.status(400).json({ message: 'Invalid Credentials' });
         }
 
-       
+        console.log(`${userType} logged in with email: ${email}`);
         res.json({ token: generateToken(user._id), userType: userType });
     } catch (err) {
-        console.error(`Error logging in ${userType} with email ${email}:`, err);
+        console.error(`Error during login attempt:`, err);
         res.status(500).send('Server error');
     }
 };
+
