@@ -5,7 +5,7 @@ const merchantSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }] // Assuming you have a Product model
+    products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }] 
 });
 
 // Hash the password before saving
