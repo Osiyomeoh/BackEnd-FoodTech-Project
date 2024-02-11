@@ -10,7 +10,16 @@ exports.getMerchantProfile = async (req, res) => {
         res.status(500).send('Server Error');
     }
 };
-
+//Get merchant products
+exports.getMerchantProducts = async (req, res) => {
+    try {
+        const merchant = await Merchant.findById(req.user.id).select('-password');
+        res.json(merchant.products);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+};
 // Update merchant profile
 exports.updateMerchantProfile = async (req, res) => {
     const { name, email } = req.body;
