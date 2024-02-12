@@ -25,9 +25,9 @@ const productSchema = new mongoose.Schema({
         required: [true, 'Product quantity is required'],
         min: [0, 'Product quantity must be a positive number']
     },
-    imageUrl: {
-        type: String,
-        required: [true, 'Product image URL is required']
+    image: { 
+        type: Buffer, 
+        required: [true, 'Product image is required']
     },
     merchant: {
         type: mongoose.Schema.Types.ObjectId,
