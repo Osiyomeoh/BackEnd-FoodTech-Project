@@ -12,15 +12,19 @@ exports.getMerchantProfile = async (req, res) => {
     }
 };
 //Get merchant products
+//Get merchant products
 exports.getMerchantProducts = async (req, res) => {
     try {
-        const product = await Product.findById(req.user.id).select('-password');
-        res.json(product);
+        // Find all products that belong to the logged-in merchant
+        const products = await Product.find({ merchant: req.user.id });
+
+        res.json(products);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
     }
 };
+
 // Update merchant profile
 exports.updateMerchantProfile = async (req, res) => {
     const { name, email } = req.body;
