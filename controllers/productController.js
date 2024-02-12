@@ -27,7 +27,7 @@ exports.getProducts = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
     const { productId } = req.params;
-    const { name, price, description, category, quantity, imageUrl } = req.body;
+    const { name, price, description, category, quantity, image } = req.body;
 
     try {
         let product = await Product.findById(productId);
@@ -41,7 +41,7 @@ exports.updateProduct = async (req, res) => {
             return res.status(401).json({ message: 'User not authorized' });
         }
 
-        product = await Product.findByIdAndUpdate(productId, { name, price, description, category, quantity, imageUrl }, { new: true });
+        product = await Product.findByIdAndUpdate(productId, { name, price, description, category, quantity, image }, { new: true });
 
         res.json(product);
     } catch (err) {
