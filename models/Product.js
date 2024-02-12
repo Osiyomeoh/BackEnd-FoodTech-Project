@@ -25,9 +25,9 @@ const productSchema = new mongoose.Schema({
         required: [true, 'Product quantity is required'],
         min: [0, 'Product quantity must be a positive number']
     },
-    image: { 
-        type: Buffer, 
-        required: [true, 'Product image is required']
+    image: {
+        type: String,
+        required: [true, 'Product image URL is required']
     },
     merchant: {
         type: mongoose.Schema.Types.ObjectId,
@@ -40,3 +40,4 @@ dbConnect();
 const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
+
