@@ -1,4 +1,5 @@
 const Merchant = require('../models/Merchant');
+const Product = require('../models/Product');
 
 // Get merchant profile
 exports.getMerchantProfile = async (req, res) => {
@@ -13,8 +14,8 @@ exports.getMerchantProfile = async (req, res) => {
 //Get merchant products
 exports.getMerchantProducts = async (req, res) => {
     try {
-        const merchant = await Merchant.findById(req.user.id).select('-password');
-        res.json(merchant.products);
+        const product = await Product.findById(req.user.id).select('-password');
+        res.json(product);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');

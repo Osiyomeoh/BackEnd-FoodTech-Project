@@ -23,6 +23,8 @@ exports.getProducts = async (req, res) => {
         res.status(500).send('Server error');
     }
 };
+
+
 exports.updateProduct = async (req, res) => {
     const { productId } = req.params;
     const { name, price, description, category, quantity, imageUrl } = req.body;
